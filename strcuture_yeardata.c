@@ -7,4 +7,4 @@ typedef struct {
     int nbblesses_leger;
 }stat_annee;
 
-stat_annee statistiques[NB_ANNEE];
+
