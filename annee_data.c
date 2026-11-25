@@ -12,7 +12,7 @@ typedef struct {
 
 stat_annee statistiques[NB_ANNEE];
 
-void initialiserTableau(statistiques[]){
+void initialiserTableau(stat_annee statistiques[]){
 
     for(int i = 0; i< NB_ANNEE; i++){
         statistiques[i].annee = 2005 + i;
@@ -47,28 +47,27 @@ void LireCsv(stat_annee statistiques[]){
         return;
     }
 
-    char[ligne] = 1000;
-    while((fgets(ligne, sizeof(ligne)), fichier) != NULL){
+    char ligne = [1000];
+    while (fgets(ligne, sizeof(ligne), fichier) != NULL){
         printf("%s", ligne);
 
         int id_accident;
         int gravite;
         int annee;
-        int *element
+        char *element
         
-        element= stork(ligne, ";"); //1 colonne
+        element= strtok(ligne, ";");; //1 colonne
         annee = atoi(element);
-        element = stork(NULL, ";");  // 2 colonne
+        element = strtok(NULL, ";");  // 2 colonne
         id_accident = atoi(element);
-        element = stork(NULL, ";");
-        element = stork(NULL, ";");
-        element = stork(NULL, ";");
-        element = stork(NULL, ";");
+        element = strtok(NULL, ";");
+        element = strtok(NULL, ";");
+        element = strtok(NULL, ";");
+        element = strtok(NULL, ";");
         gravite = atoi(element);
-        
-        fclose(fichier);
            
     }
+      fclose(fichier);
     
     int indice = annee - 2005;
 
@@ -81,21 +80,19 @@ void LireCsv(stat_annee statistiques[]){
     }else{
         statistiques[indice].nbblesses_leger++;
     }
+
+    int derniereAnnee = 1;
+    int dernierAccident = 1;
+
+    if(annee != derniereAnnee || id_accident != dernierAccident){
+        statistiques[indice].nbaccidents++;
+    }
+
+
+
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
